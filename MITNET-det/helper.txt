@@ -1,0 +1,30 @@
+python train.py --img 512 --batch 16 --epochs 50 --data '/data/sencer.yaml' --cfg ./models/yolov4-p5.yaml --weights 'yolov4-p5.pt' --name yolov4-p5-results  --cache
+
+>>> import torch
+>>> torch.cuda.get_arch_list()
+['sm_37', 'sm_50', 'sm_60', 'sm_61', 'sm_70', 'sm_75', 'sm_80', 'compute_37']
+
+Precision Recall AP50, mAP50-95
+
+C:/Users/ViraSoft/Desktop/repos/scaled-yolo/ScaledYOLOv4/data/sencer.yaml
+
+python train.py --img-size 512 --batch-size 16 --epochs 150 --data data/sencer.yaml --cfg models/yolov4-p5.yaml --weights yolov4-p5.pt --name yolov4-p5-results  --cache
+python test.py --task test --img-size 512 --batch-size 16 --data data/sencer.yaml --weights runs/exp4_yolov4-p5-results/weights/best_yolov4-p5-results_strip.pt
+
+--task
+C:/Users/ViraSoft/Desktop/repos/scaled-yolo/ScaledYOLOv4/runs/exp4_yolov4-p5-results/weights/best_yolov4-p5-results_strip.pt
+
+requirements
+
+conda create -n yolo_pt17 python=3.6
+conda install pytorch==1.7.0 torchvision==0.8.0 cudatoolkit=11.0 -c pytorch
+git clone https://github.com/JunnYu/mish-cuda
+cd mish-cuda
+python setup.py build install
+
+tensorboard==1.15
+matplotlib
+opencv-python
+PyYAML
+scipy
+tqdm
